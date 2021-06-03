@@ -17,27 +17,20 @@ def computer_action():
   return actions_list[random.randint(0, 2)]
 
 def find_victor(player_choice, computer_choice):
+  if player_choice == computer_choice:
+    return Results.NONE
+
   if player_choice == Actions.ROCK:
-    if computer_choice == Actions.ROCK:
-      return Results.NONE
-    elif computer_choice == Actions.PAPER:
-      return Results.COMPUTER
-    else:
-      return Results.PLAYER
-  elif player_choice == Actions.PAPER:
     if computer_choice == Actions.PAPER:
-      return Results.NONE
-    elif computer_choice == Actions.SCISSOR:
       return Results.COMPUTER
-    else:
-      return Results.PLAYER
-  else:
+  if player_choice == Actions.PAPER:
     if computer_choice == Actions.SCISSOR:
-      return Results.NONE
-    elif computer_choice == Actions.ROCK:
       return Results.COMPUTER
-    else:
-      return Results.PLAYER
+  if player_choice == Actions.SCISSOR:
+    if computer_choice == Actions.ROCK:
+      return Results.COMPUTER
+  
+  return Results.PLAYER
 
 
 def find_player_choice(input):
@@ -65,7 +58,7 @@ def handle_score(winner):
 
 def end_game_print():
   if player_score == 3:
-    print('You won, Congratulations! 🎈🥳👑')
+    print('You won, Congratulations! 🎈 🥳 👑')
   else:
     print('You lost, better luck next time 😢')
 
