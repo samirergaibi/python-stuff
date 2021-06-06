@@ -62,14 +62,14 @@ def end_game_print():
   else:
     print('You lost, better luck next time 😢')
 
-choices = ['r', 'rock', 'p', 'paper', 's', 'scissor']
+valid_inputs = ['r', 'rock', 'p', 'paper', 's', 'scissor']
 def get_player_input():
-  player_input = input('Make your choice:\nrock (r)\npaper (p)\nscissor (s)\n')
+  player_input = input('Make your choice:\nrock (r)\npaper (p)\nscissor (s)\n').lower()
   while True:
-    if player_input in choices:
+    if player_input in valid_inputs:
       return player_input
     else:
-      player_input = input('You need to choose either rock (r), paper (p) or scissor (s).\n')
+      player_input = input('You need to choose either rock (r), paper (p) or scissor (s).\n').lower()
 
 def start_game():
   print("Let's play a game... of 🤘 🧻 ✂ !")
