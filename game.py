@@ -62,11 +62,20 @@ def end_game_print():
   else:
     print('You lost, better luck next time 😢')
 
+choices = ['r', 'rock', 'p', 'paper', 's', 'scissor']
+def get_player_input():
+  player_input = input('Make your choice:\nrock (r)\npaper (p)\nscissor (s)\n')
+  while True:
+    if player_input in choices:
+      return player_input
+    else:
+      player_input = input('You need to choose either rock (r), paper (p) or scissor (s).\n')
+
 def start_game():
   print("Let's play a game... of 🤘 🧻 ✂ !")
   while player_score < 3 and computer_score < 3:
     print('----------------------------')
-    player_input = input('Make your choice:\nrock (r)\npaper (p)\nscissor (s)\n')
+    player_input = get_player_input()
     player_choice = find_player_choice(player_input)
     computer_choice = computer_action()
     winner = find_victor(player_choice, computer_choice)
